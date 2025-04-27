@@ -35,7 +35,13 @@ redis_conn.hdel("meu_hash", "cidade")
 
 ### buscas por existencia
 elem = redis_conn.exists("chave_1")
-print(elem)
+# print(elem)
 
 elem_2 = redis_conn.hexists("meu_hash", "nome")
-print(elem_2)
+# print(elem_2)
+
+
+### Expiracao de dados
+# dados -> TTL -> Time to Live [segundos]
+redis_conn.set("chave_del", "esse valor sera deletado", 12)
+redis_conn.expire("meu_hash", 30)
